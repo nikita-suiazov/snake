@@ -1,0 +1,85 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  font-family: "Pixelify Sans", sans-serif;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+}
+
+.title {
+  font-size: 65px;
+  margin: 15px 0;
+}
+
+.game-board-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  width: 500px;
+}
+
+.game-over, .victory {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
+  width: inherit;
+  font-size: 71px;
+  background-color: gray;
+  opacity: 0.95;
+}
+
+.hidden {
+  display: none;
+}
+
+.canvas {
+  border: 3px solid black;
+  height: 100%;
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  width: 100%;
+}
+
+.score-container, .best-score-container {
+  display: flex;
+  align-items: center;
+}
+
+.red-square {
+  font-size: 49px;
+}
+
+.column {
+  font-size: 60px;
+  padding: 0 6px 7px 6px;
+}
+
+.score, .best-score {
+  font-size: 65px;
+  width: 77px;
+}
+
+.cup {
+  font-size: 49px;
+  padding-top: 3px;
+}
+
+.reload {
+  all: unset;
+  font-size: 54px;
+  cursor: pointer;
+}
