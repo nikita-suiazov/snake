@@ -4,7 +4,6 @@ const FOOD_COLOR = 'red';
 const SNAKE_COLOR = 'green';
 const SNAKE_BORDER_COLOR = 'black';
 const CELL_SIZE = 50;
-const DEFAULT_SNAKE_SIZE = 3;
 const GAME_TICK_INTERVAL = 170;
 const DEFAULT_SNAKE = [{ x: 0, y: 0 }];
 const DEFAULT_DIRECTION = { x: CELL_SIZE, y: 0 };
@@ -44,8 +43,8 @@ let snake, direction, pressedArrowKeysQueue, currentPressedArrowKey, score, best
 // Functions
 const clearBoard = () => ctx.clearRect(0, 0, canvas.width, canvas.height);
 const hasEatenFood = (head) => (head.x === food.x && head.y === food.y);
-const generateRandomPosition = (maxLegth) => Math.floor(Math.random() * maxLegth / CELL_SIZE) * CELL_SIZE;
-const isIntersect = (snake, object) => snake.some((part) => part.x === object.x && part.y === object.y);
+const generateRandomPosition = (maxLength) => Math.floor(Math.random() * maxLength / CELL_SIZE) * CELL_SIZE;
+const isIntersect = (snake, object) => snake.some((snakePart) => snakePart.x === object.x && snakePart.y === object.y);
 
 const drawFood = () => {
   ctx.fillStyle = FOOD_COLOR;
@@ -56,7 +55,7 @@ const drawSnake = () => {
   ctx.fillStyle = SNAKE_COLOR;
   ctx.strokeStyle = SNAKE_BORDER_COLOR;
 
-  snake.forEach((snakePart) =>  {
+  snake.forEach((snakePart) => {
     ctx.fillRect(snakePart.x, snakePart.y, CELL_SIZE, CELL_SIZE);
     ctx.strokeRect(snakePart.x, snakePart.y, CELL_SIZE, CELL_SIZE);
   });
@@ -79,14 +78,16 @@ const checkVictory = () => {
 };
 
 const createFood = () => {
-  let foodX, foodY;
+  let newFood = { x: null, y: null };
 
   do {
-    foodX = generateRandomPosition(canvas.width);
-    foodY = generateRandomPosition(canvas.height);
-  } while (isIntersect(snake, { x: foodX, y: foodY }));
+    newFood = {
+      x: generateRandomPosition(canvas.width),
+      y: generateRandomPosition(canvas.height),
+    };
+  } while (isIntersect(snake, newFood));
 
-  return { x: foodX, y: foodY };
+  return newFood;
 };
 
 const updateScore = () => {
@@ -106,7 +107,7 @@ const moveSnake = () => {
     direction = PRESSED_ARROW_KEY_MAPPING[currentKey].direction;
   }
 
-  // The modulo operation (%) ensures the snake reappears on the opposite edge of the canvas
+  // The modulo operation (%) ensures the snake reappears on the opposite side of the canvas
   const newHead = {
     x: (snake[0].x + direction.x + canvas.width) % canvas.width,
     y: (snake[0].y + direction.y + canvas.height) % canvas.height,
@@ -158,5 +159,5 @@ window.addEventListener('keydown', ({ key }) => {
 
 reloadButton.addEventListener('click', startGame);
 
-// Start Game
+// Initial Game Start
 startGame();

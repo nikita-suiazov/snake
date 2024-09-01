@@ -3,36 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap">
+  <link rel="stylesheet" href="styles.css">
   <title>Snake</title>
 </head>
 <body>
-  <main class="app">
+  <main class="main">
     <p class="title">Snake</p>
 
-    <div class="game-board-container">
+    <section class="game-board">
       <div class="game-over hidden">Game Over! 💀</div>
       <div class="victory hidden">You won! 🏅</div>
       <canvas class="canvas" width="500" height="500"></canvas>
-    </div>
+    </section>
 
     <footer class="footer">
       <div class="score-container">
-        <div class="red-square">🟥</div>
-        <span class="column">:</span>
+        <span class="red-square">🟥</span>
+        <span class="colon">:</span>
         <span class="score"></span>
       </div>
 
       <div class="best-score-container">
         <span class="cup">🏆</span>
-        <span class="column">:</span>
+        <span class="colon">:</span>
         <span class="best-score"></span>
       </div>
 
       <button class="reload">🔄</button>
     </footer>
-    <script src="index.js"></script>
   </main>
+  <script src="index.js"></script>
 </body>
 </html>
