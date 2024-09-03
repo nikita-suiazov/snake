@@ -71,14 +71,16 @@ const checkCollision = () => {
 };
 
 const checkVictory = () => {
-  if (snake.length === ((canvas.width * canvas.height) / (CELL_SIZE ** 2) - 1)) {
+  const totalNumberOfCells = (canvas.width * canvas.height) / (CELL_SIZE ** 2);
+
+  if (snake.length === (totalNumberOfCells - 1)) {
     clearInterval(gameInterval);
     victoryElement.classList.remove('hidden');
   }
 };
 
 const createFood = () => {
-  let newFood = { x: null, y: null };
+  let newFood;
 
   do {
     newFood = {
