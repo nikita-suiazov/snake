@@ -4,4 +4,4 @@
 
 🎮 Play Game: https://nikita-suiazov.github.io/snake/
 
-<img width="527" alt="snake" src="[https://github.com/user-attachments/assets/77b13db2-aeab-47e1-b7c9-176e137e8cc5](https://github.com/IndiasFernandes/snake/blob/main/snake_img.png)">
+<img width="527" alt="snake" src="https://github.com/user-attachments/assets/77b13db2-aeab-47e1-b7c9-176e137e8cc5](https://github.com/IndiasFernandes/snake/blob/main/snake_img.png">
